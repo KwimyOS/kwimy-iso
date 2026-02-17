@@ -58,6 +58,7 @@ ripgrep
 gnome-themes-extra
 qt5-multimedia
 qt6-multimedia
+pavucontrol
 
 # Audio
 pipewire
@@ -176,3 +177,8 @@ fisher
 # Node
 nvm
 pnpm
+
+
+# Extra
+vesktop-bin
+zlaunch-bin

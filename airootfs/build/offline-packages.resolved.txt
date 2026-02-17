@@ -54,6 +54,7 @@ caelestia-meta
 caelestia-shell
 cairo
 cairomm
+cairomm-1.16
 c-ares
 cdparanoia
 cliphist
@@ -89,6 +90,7 @@ egl-gbm
 egl-wayland
 egl-wayland2
 egl-x11
+electron40
 exempi
 exiv2
 expat
@@ -136,6 +138,7 @@ glib2
 glibc
 glibc>=2.27
 glibmm
+glibmm-2.68
 glib-networking
 glslang
 glycin
@@ -183,6 +186,7 @@ gtk4-layer-shell
 gtk4-layer-shell>=1.0.4
 gtk-layer-shell
 gtkmm3
+gtkmm-4.0
 gtk-update-icon-cache
 guile
 gupnp
@@ -466,6 +470,7 @@ libsasl
 libseccomp
 libsecret
 libsigc++
+libsigc++-3.0
 libsm
 libsndfile
 libsodium
@@ -621,9 +626,11 @@ pam
 pambase
 pango
 pangomm
+pangomm-2.48
 papirus-icon-theme
 parted
 patch
+pavucontrol
 pciutils
 pcre
 pcre2
@@ -799,6 +806,7 @@ util-linux-libs=2.41.3
 uwsm-git
 v4l-utils
 vapoursynth
+vesktop-bin
 vid.stab
 vim
 vim-runtime=9.1.2132-1
@@ -856,6 +864,7 @@ yazi
 yyjson
 zeromq
 zix
+zlaunch-bin
 zlib
 zlib-ng
 zram-generator

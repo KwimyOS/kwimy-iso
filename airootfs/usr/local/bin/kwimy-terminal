@@ -1,0 +1,65 @@
+#!/bin/sh
+set -eu
+
+outer_gap=${KWIMY_OUTER_GAP:-24}
+case "$outer_gap" in
+  ''|*[!0-9]*)
+    outer_gap=24
+    ;;
+esac
+
+current_width=""
+current_height=""
+max_width=""
+max_height=""
+if command -v wlr-randr >/dev/null 2>&1; then
+  i=0
+  while [ "$i" -lt 20 ] && [ -z "$current_width" ]; do
+    read -r current_width current_height max_width max_height <<EOF
+$(
+      wlr-randr 2>/dev/null | awk '
+        /^[[:space:]]+[0-9]+x[0-9]+/ {
+          split($1, res, "x");
+          w = res[1];
+          h = res[2];
+          area = w * h;
+          if (area > max_area) { max_area = area; max_w = w; max_h = h; }
+          if ($0 ~ /\(current\)|\*/) {
+            if (area > cur_area) { cur_area = area; cur_w = w; cur_h = h; }
+          }
+        }
+        END {
+          if (cur_w > 0) print cur_w, cur_h, max_w, max_h;
+          else if (max_w > 0) print "", "", max_w, max_h;
+        }
+      '
+    )
+EOF
+    [ -z "$current_width" ] && [ -n "${max_width:-}" ] && current_width=$max_width
+    [ -z "$current_height" ] && [ -n "${max_height:-}" ] && current_height=$max_height
+    if [ -z "$current_width" ]; then
+      sleep 0.1
+    fi
+    i=$((i + 1))
+  done
+fi
+
+set -- kitty
+if [ -n "$current_width" ] && [ -n "$current_height" ]; then
+  width=$current_width
+  height=$current_height
+  if [ "$outer_gap" -gt 0 ]; then
+    gap2=$((outer_gap * 2))
+    if [ "$width" -gt "$gap2" ] && [ "$height" -gt "$gap2" ]; then
+      width=$((width - gap2))
+      height=$((height - gap2))
+    fi
+  fi
+  set -- "$@" \
+    --override placement_strategy=center \
+    --override initial_window_state=normal \
+    --override initial_window_width="${width}" \
+    --override initial_window_height="${height}"
+fi
+
+exec "$@"

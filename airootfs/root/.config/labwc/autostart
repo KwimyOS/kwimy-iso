@@ -1,0 +1,93 @@
+#!/usr/bin/env sh
+set -eu
+
+WALLPAPER=/usr/share/backgrounds/kwimy/2.jpg
+
+# KWIMY_VM_MAX=1600x900
+
+if command -v wlr-randr >/dev/null 2>&1; then
+  output=$(wlr-randr | awk '/^[A-Za-z0-9-]+/{print $1; exit}')
+  if [ -n "$output" ]; then
+    if command -v systemd-detect-virt >/dev/null 2>&1 && [ "$(systemd-detect-virt)" != "none" ]; then
+      vm_cap=${KWIMY_VM_MAX:-1920x1080}
+      case "$vm_cap" in
+        *x*)
+          cap_w=${vm_cap%x*}
+          cap_h=${vm_cap#*x}
+          ;;
+        *)
+          cap_w=1920
+          cap_h=1080
+          ;;
+      esac
+      case "$cap_w:$cap_h" in
+        ''|*[!0-9]*)
+          cap_w=1920
+          cap_h=1080
+          ;;
+      esac
+      vm_mode=$(wlr-randr | awk -v cap_w="$cap_w" -v cap_h="$cap_h" '
+        /^[A-Za-z0-9-]+/ { in_output=1; next }
+        in_output && $1 ~ /^[0-9]+x[0-9]+/ {
+          split($1, res, "x");
+          w = res[1]; h = res[2];
+          if (w <= cap_w && h <= cap_h) {
+            area = w * h;
+            if (area > best_area) { best_area = area; best = $1; }
+          } else if (w >= cap_w && h >= cap_h) {
+            area = w * h;
+            if (over_area == 0 || area < over_area) { over_area = area; over = $1; }
+          }
+        }
+        END {
+          if (best_area > 0) print best;
+          else if (over_area > 0) print over;
+        }
+      ')
+      if [ -n "$vm_mode" ]; then
+        wlr-randr --output "$output" --mode "$vm_mode" >/dev/null 2>&1 || true
+      fi
+    else
+      hw_cap=${KWIMY_MAX:-3840x2160}
+      case "$hw_cap" in
+        *x*)
+          cap_w=${hw_cap%x*}
+          cap_h=${hw_cap#*x}
+          ;;
+        *)
+          cap_w=3840
+          cap_h=2160
+          ;;
+      esac
+      case "$cap_w:$cap_h" in
+        ''|*[!0-9]*)
+          cap_w=3840
+          cap_h=2160
+          ;;
+      esac
+      max_mode=$(wlr-randr | awk -v cap_w="$cap_w" -v cap_h="$cap_h" '
+        /^[A-Za-z0-9-]+/ { in_output=1; next }
+        in_output && $1 ~ /^[0-9]+x[0-9]+/ {
+          split($1, res, "x");
+          area = res[1] * res[2];
+          if (res[1] <= cap_w && res[2] <= cap_h) {
+            if (area > max_area) { max_area = area; max = $1; }
+          } else if (area > max_area) {
+            max_area = area;
+            max = $1;
+          }
+        }
+        END { if (max_area > 0) print max; }
+      ')
+      if [ -n "$max_mode" ]; then
+        wlr-randr --output "$output" --mode "$max_mode" >/dev/null 2>&1 || true
+      fi
+    fi
+  fi
+fi
+
+if command -v swaybg >/dev/null 2>&1 && [ -f "$WALLPAPER" ]; then
+  swaybg -i "$WALLPAPER" -m fill &
+fi
+
+exec /bin/sh /usr/local/bin/kwimy-launcher

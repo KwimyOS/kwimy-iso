@@ -1,0 +1,15 @@
+# Packages that are not in the configured pacman repos (AUR/custom).
+# These are kept as-is without resolving dependencies.
+yay
+kwimy-hypr
+caelestia-meta
+caelestia-shell
+kwimy-keybind-menu
+kwimy-oh-my-zsh
+kwimy-astrovim
+kwimy-vimix-grub
+kwimy-luks
+kwimy-splash
+qt5ct-kde
+qt6ct-kde
+app2unit

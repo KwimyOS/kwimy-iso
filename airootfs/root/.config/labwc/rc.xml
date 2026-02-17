@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<labwc_config>
+  <keyboard>
+    <keybind key="W-Return">
+      <action name="Execute">
+        <command>/usr/local/bin/kwimy-terminal</command>
+      </action>
+    </keybind>
+    <keybind key="W-q">
+      <action name="Close" />
+    </keybind>
+  </keyboard>
+</labwc_config>

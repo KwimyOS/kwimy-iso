@@ -124,9 +124,9 @@ swaync-git
 awww-git
 matugen-git
 
-caelestia-shell
-caelestia-cli
-caelestia-meta
+# caelestia-shell
+# caelestia-cli
+# caelestia-meta
 uwsm-git
 qt5ct-kde
 qt6ct-kde
@@ -146,6 +146,7 @@ rofi
 yazi
 breeze-gtk
 darkly-bin
+cava
 
 kwimy-keybind-menu
 kwimy-oh-my-zsh

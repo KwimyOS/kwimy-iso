@@ -21,7 +21,6 @@ atkmm
 at-spi2-core
 attica
 attr
-aubio
 audit
 autoconf
 automake
@@ -49,13 +48,11 @@ bzip2
 ca-certificates
 ca-certificates-mozilla
 ca-certificates-utils>=20181109-3
-caelestia-cli
-caelestia-meta
-caelestia-shell
 cairo
 cairomm
 cairomm-1.16
 c-ares
+cava
 cdparanoia
 cliphist
 cmake
@@ -64,7 +61,6 @@ cppdap
 cryptsetup
 curl
 darkly-bin
-dart-sass
 dav1d
 db5.3
 dbus
@@ -72,7 +68,6 @@ dbus-broker
 dbus-broker-units
 dbus-units
 dconf
-ddcutil
 debugedit
 default-cursors
 desktop-file-utils
@@ -117,7 +112,6 @@ freetype2
 fribidi
 fuse3
 fuse-common
-fuzzel
 fzf
 gammastep
 gawk
@@ -154,7 +148,6 @@ gnupg>=2
 gnutls
 gobject-introspection
 gobject-introspection-runtime=1.86.0-2
-google-breakpad
 gperftools
 gpgme
 gpgmepp
@@ -215,7 +208,6 @@ hyprtoolkit
 hyprutils
 hyprwayland-scanner
 hyprwire
-i2c-tools
 iana-etc
 icu
 iniparser
@@ -230,7 +222,6 @@ iso-codes
 jack
 jansson
 jbigkit
-jemalloc
 jq
 json-c
 jsoncpp
@@ -320,7 +311,6 @@ libasyncns
 libatasmart
 libatomic
 libavc1394
-libavif
 libb2
 libblockdev
 libblockdev-crypto
@@ -339,7 +329,6 @@ libbytesize
 libcanberra
 libcap
 libcap-ng
-libcava
 libcdio
 libcdio-paranoia
 libcloudproviders
@@ -392,7 +381,6 @@ libgxps
 libice
 libidn2
 libiec61883
-libimagequant
 libimobiledevice
 libimobiledevice-glue
 libinih
@@ -459,9 +447,7 @@ libportal-gtk4
 libproxy
 libpsl
 libpulse
-libqalculate
 libquadmath
-libraqm
 libraw1394
 librsvg
 librsync
@@ -542,7 +528,6 @@ libxtables.so=12-64
 libxtst
 libxv
 libxxf86vm
-libyuv
 libzimg.so=2-64
 libzip
 licenses
@@ -661,7 +646,6 @@ poppler=26.01.0
 poppler-glib
 popt
 portaudio
-power-profiles-daemon
 pps-tools
 procps-ng
 psmisc
@@ -679,10 +663,8 @@ python-jaraco.text
 python-mako
 python-markdown
 python-markupsafe
-python-materialyoucolor
 python-more-itertools
 python-packaging
-python-pillow
 python-pkg_resources
 python-platformdirs
 python-psutil
@@ -716,11 +698,9 @@ qt6-shadertools
 qt6-svg
 qt6-translations
 qt6-wayland
-quickshell-git
 rav1e
 re2
 readline
-resvg
 rhash
 ripgrep
 rofi
@@ -761,7 +741,6 @@ starship
 startup-notification
 sudo
 svt-av1
-swappy
 swaync-git
 swayosd-git
 syndication
@@ -790,10 +769,8 @@ ttf-cascadia-code-nerd
 ttf-cascadia-mono-nerd
 ttf-font
 ttf-jetbrains-mono-nerd
-ttf-material-symbols-variable
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-common
-ttf-rubik-vf
 tzdata
 uchardet
 udisks2

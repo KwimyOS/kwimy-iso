@@ -183,4 +183,3 @@ pnpm
 
 # Extra
 vesktop-bin
-zlaunch-bin

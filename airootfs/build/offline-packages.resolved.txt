@@ -203,6 +203,7 @@ hyprlang
 hyprlock
 hyprpaper
 hyprpicker
+hyprshot
 hyprsunset
 hyprtoolkit
 hyprutils
@@ -706,6 +707,7 @@ ripgrep
 rofi
 rtkit
 rubberband
+satty
 sbc
 sdbus-cpp
 sddm

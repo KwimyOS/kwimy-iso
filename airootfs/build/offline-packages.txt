@@ -147,6 +147,8 @@ yazi
 breeze-gtk
 darkly-bin
 cava
+satty
+hyprshot
 
 kwimy-keybind-menu
 kwimy-oh-my-zsh
